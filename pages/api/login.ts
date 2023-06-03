@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import {conectarMongoDB} from "../../middlewares/conectarMongoDB"
 
-export default (
+const endpointLogin = (
     req : NextApiRequest,
     res : NextApiResponse 
 ) => {
@@ -16,3 +17,5 @@ export default (
     }
     return res.status(405).json({erro : 'Metodo informado nao e valido'});
 }
+
+export default conectarMongoDB(endpointLogin);
