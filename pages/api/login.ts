@@ -1,9 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import {conectarMongoDB} from "../../middlewares/conectarMongoDB"
+import type {RespostaPadaoMsg} from '../../types/RespostaPadraoMsg'
 
 const endpointLogin = (
     req : NextApiRequest,
-    res : NextApiResponse 
+    res : NextApiResponse<RespostaPadaoMsg>
 ) => {
     if(req.method === 'POST') {
 
@@ -11,7 +12,7 @@ const endpointLogin = (
         
         if(login === 'admin@admin.com' &&
         senha === 'Admin@123'){
-            res.status(200).json({msg : 'Usuario autenticado com sucesso'})
+           return res.status(200).json({msg : 'Usuario autenticado com sucesso'})
         }
         return res.status(400).json({erro : 'Usuario ou senha nao encontrado'})
     }
