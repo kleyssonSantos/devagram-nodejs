@@ -1,10 +1,15 @@
 import multer from "multer";
 import { createBucketClient } from '@cosmicjs/sdk';
 
+const {
+    BUCKETSLUG,
+    READKEY,
+    WRITEKEY} = process.env;
+
 const meuBucketDevaria = createBucketClient({
-    bucketSlug: 'devagram-devaria',
-    readKey: 'usI6yYLKeHrDBSgX1AC3HQRFfdy6A4O8OxutxxLCnBWpRScI8i',
-    writeKey : 'icaq4V8vC1quDPGIZGcE7l8uTDIsT2H2cJjSC1fYdlvOcDRADW'
+    bucketSlug: BUCKETSLUG,
+    readKey: READKEY,
+    writeKey : WRITEKEY
 });
 
 const storage = multer.memoryStorage();
