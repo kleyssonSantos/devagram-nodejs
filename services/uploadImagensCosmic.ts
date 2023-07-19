@@ -2,14 +2,14 @@ import multer from "multer";
 import { createBucketClient } from '@cosmicjs/sdk';
 
 const {
-    BUCKETSLUG,
-    READKEY,
-    WRITEKEY} = process.env;
+    MINHA_CHAVE_BUCKETSLUG,
+    MINHA_CHAVE_READKEY,
+    MINHA_CHAVE_WRITEKEY} = process.env;
 
 const meuBucketDevaria = createBucketClient({
-    bucketSlug: BUCKETSLUG,
-    readKey: READKEY,
-    writeKey : WRITEKEY
+    CHAVE_BUCKETSLUG : MINHA_CHAVE_BUCKETSLUG,
+    CHAVE_READKEY : MINHA_CHAVE_READKEY,
+    CHAVE_WRITEKEY : MINHA_CHAVE_WRITEKEY
 });
 
 const storage = multer.memoryStorage();
