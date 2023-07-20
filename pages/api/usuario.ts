@@ -46,7 +46,8 @@ import { politicaCORS } from "@/middlewares/politicadeCors";
         }
         const {userId} = req?.query;
         const usuario = await UsuarioModel.findById(userId);
-        usuario.senha = null
+        console.log('usuario', usuario)
+        usuario.senha = null;
         return res.status(200).json(usuario);
     }catch(e){
     console.log(e);
