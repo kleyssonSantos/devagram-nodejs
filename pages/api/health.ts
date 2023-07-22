@@ -1,9 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import type {RespostaPadaoMsg } from '../../types/RespostaPadraoMsg' ;
-import { validarTokenJWT } from "@/middlewares/validarTokenJWT";
-import { conectarMongoDB } from "@/middlewares/conectarMongoDB";
-import { UsuarioModel } from "@/models/UsuarioModel";
-import { SeguidorModel } from "@/models/SeguidorModel";
 import { politicaCORS } from "@/middlewares/politicadeCors";
 
 
@@ -16,7 +12,7 @@ const endpointSeguir = async(req : NextApiRequest, res : NextApiResponse<Respost
         return res.status(405).json({erro : 'Metodo informado nao existe'});
     }catch(e){
         console.log(e);
-        return res.status(500).json({erro : 'Nao foi possivel seguir/deseguir o usuario informado'});
+        return res.status(500).json({erro : 'Nao foi posivel executar esse funçao'});
     }
 }
 
